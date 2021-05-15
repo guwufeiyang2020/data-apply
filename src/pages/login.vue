@@ -105,95 +105,95 @@ export default {
 
 <style lang="scss" scoped>
 .login-header {
-	width: 1200px;
-	height: 120px;
-	padding-top: 60px;
+	width: 12rem;
+	height: 1.2rem;
+	padding-top: .6rem;
 	margin: 0 auto;
 	.logo {
 		font-weight: bold;
-		font-size: 30px;
+		font-size: .3rem;
 	}
 }
 .login-content {
 	width: 100%;
-	height: 618px;
+	height: 6.18rem;
 	background: url('../assets/images/logo-bg.jpg') no-repeat;
 	background-size: 100%;
 	.width1000 {
 		display: flex;
-		height: 618px;
+		height: 6.18rem;
 		flex-direction: row-reverse;
 		align-items: center;
 	}
 }
 .login-box {
-	width: 460px;
-	padding: 30px;
+	width: 4.6rem;
+	padding: .3rem;
 	background: rgba(255, 255, 255, 0.6);
 	border: 1px solid #fff;
-	border-radius: 3px;
+	border-radius: .03rem;
 	h2 {
-		font-size: 22px;
-    padding-left: 24px;
+		font-size: .22rem;
+    padding-left: .24rem;
 	}
 }
 
 .login-body {
-	padding: 22px 26px 0 26px;
+	padding: .22rem .26rem 0 .26rem;
 }
 .el-form-item {
 	position: relative;
 	.icon-svg {
 		position: absolute;
-		left: 9px;
-		top: 12px;
-		width: 25px;
-		height: 25px;
+		left: .09rem;
+		top: .12rem;
+		width: .25rem;
+		height: .25rem;
 		z-index: 10;
 	}
 	/deep/ .el-input__inner {
-		padding-left: 42px;
-		height: 50px;
-		line-height: 50px;
+		padding-left: .42rem;
+		height: .5rem;
+		line-height: .5rem;
 	}
 }
 
 /deep/ .el-button--primary {
 	background: #004986;
-	font-size: 16px;
+	font-size: .16rem;
 	outline: none;
-  line-height: 30px;
+  line-height: .3rem;
 	border: 0 none;
 }
 .login-footer {
-	margin: 10px 0 20px 0;
+	margin: .1rem 0 .2rem 0;
 	color: #333;
 	cursor: pointer;
 }
 
 .login-bottom {
-	padding-top: 12px;
+	padding-top: .12rem;
 	text-align: center;
 	color: #626467;
-	line-height: 26px;
-	font-size: 14px;
+	line-height: .26rem;
+	font-size: .14rem;
 	.main-company {
-		margin-right: 10px;
+		margin-right: .1rem;
 	}
 	.copyright {
-		width: 240px;
-		height: 30px;
+		width: 2.4rem;
+		height: .3rem;
 		display: flex;
 		align-items: center;
 		margin: 0 auto;
 	}
 	.icon-copyright {
 		display: block;
-		width: 20px;
-		height: 20px;
+		width: .2rem;
+		height: .2rem;
 		background: url('../assets/images/badge.png') no-repeat left center;
 		background-size: 100%;
-		margin-right: 10px;
+		margin-right: .1rem
 	}
 }
 </style>

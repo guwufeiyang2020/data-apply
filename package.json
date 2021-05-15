@@ -15,7 +15,10 @@
     "moment": "^2.29.1",
     "nprogress": "^0.2.0",
     "vue": "^2.6.11",
+    "vue-grid-layout": "^2.3.12",
     "vue-router": "^3.5.1",
+    "vue-seamless-scroll": "^1.1.23",
+    "vuedraggable": "^2.24.3",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
@@ -31,8 +34,8 @@
     "sass-loader": "^7.1.0",
     "svg-sprite-loader": "^6.0.6",
     "svgo": "^2.3.0",
+    "swiper": "^5.3.6",
     "vue-awesome-swiper": "^4.1.1",
-    "vue-cookie": "^1.1.4",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

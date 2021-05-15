@@ -21,7 +21,7 @@ router.beforeEach((to, from, next) => {
   // 防止刷新后vuex里丢失token
   store.commit('getToken');
   store.commit('getUserName');
-  let token = store.state.token
+  let token = store.state.token;
   // 过滤登录页，防止死循环
   if (!token && to.name !== 'login') {
     next({ name: 'login' });

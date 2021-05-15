@@ -5,7 +5,16 @@ const resolve = function (dir) {
 module.exports = {
   devServer: {
     port: 3333,
-    open: true
+    open: true,
+    proxy: {
+      '/api': {
+        target: 'http://mall-pre.springboot.cn', // 后台服务地址替换
+        changeOrigin: true,
+        pathRewrite: {
+          '/api':''
+        }
+      }
+    }
   },
   css: {
     loaderOptions: {
@@ -43,8 +52,5 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
-
-   
-    
   },
 }

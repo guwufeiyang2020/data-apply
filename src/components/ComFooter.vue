@@ -10,12 +10,12 @@
 </script>
 <style lang="scss" scoped>
   .footer{
-    height: 60px;
-    background:#011130;
+    height: .6rem;
+    background: $theme-color;
     color:#fff;
-    font-size: 14px;
+    font-size: .14rem;
     .copyright{
-      line-height: 60px;
+      line-height: .6rem;
       text-align: center;
       .domain{
         color:#FF6600;

@@ -16,3 +16,10 @@ Mock.mock('/api/user/logout', {
   }
 });
 
+Mock.mock('/api/drag/save', {
+  "code": 20000,
+  "data": {
+    "message": '保存成功'
+  }
+});
+

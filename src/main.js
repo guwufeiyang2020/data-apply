@@ -3,9 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './icons';
+import './utils/rem';
 // 全局配置
-import "./assets/scss/reset.scss";
-import "element-ui/lib/theme-chalk/index.css";
+import './assets/scss/index.scss';
+import "element-ui/lib/theme-chalk/index.css"; 
 
 import { Message } from 'element-ui'
 import http from '@/api/config'

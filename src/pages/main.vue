@@ -20,6 +20,6 @@
 
 <style lang="scss" scoped>
   .main-content {
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 1.4rem);
   }
 </style>
