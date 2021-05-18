@@ -215,6 +215,7 @@ export default{
 </script>
 
 <style lang="scss" scoped>
+  @import '@/assets/scss/mixin.scss';
   .search-wrapper {
     width: 100%;
     min-height: calc(100vh - 1.4rem);
@@ -229,7 +230,8 @@ export default{
       height: .5rem;
       line-height: .5rem;
       font-size: .16rem;
-      color: $theme-color;
+      // color: $theme-color;
+      @include font_color($font-color-theme);
     }
     .content-box {
       display: flex;
@@ -242,8 +244,8 @@ export default{
         flex: 1;
         padding: 0 .3rem;
         /deep/ .el-button {
-          background: $theme-color;
-          border: 1px solid $theme-color;
+          @include bg_color($background-color-theme);
+          @include border_color($font-color-theme);
           color: #fff;
           border-radius: 0 4px 4px 0;
         }
@@ -272,7 +274,7 @@ export default{
             display: flex;
             justify-content: center;
             align-items: center;
-            background: $theme-color;
+            @include bg_color($background-color-theme);
             img {
               width: .28rem;
               height: .28rem;

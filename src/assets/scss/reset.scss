@@ -65,62 +65,35 @@ html, body {
 	}
 }
 //清除浮动
-.clearfix{
-  zoom:1;
-  &:after{
-    display:block;
-    clear:both;
-    content:"";
+.clearfix {
+  zoom: 1;
+  &:after {
+    display: block;
+    clear: both;
+    content: "";
     visibility: hidden;
-    height:0;
+    height: 0;
   }
 }
-
 .width1000 {
   width: 1000px;
   margin: 0 auto;
-}
-
-.blue {
-  color: #1658c5;
 }
 
 // 滚动条样式
 ::-webkit-scrollbar {
   width: 10px;
   height: 6px;
+  border-radius: 4px;
   background-color: #F5F5F5;
 }
-
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  border-radius: 4px;
   background-color: #F5F5F5;
 }
-
 ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+  border-radius: 4px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: #2d518b;
-}
-
-.min-scrollbar {
-  // 滚动条样式
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 6px;
-    background-color: #F5F5F5;
-  }
-
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    background-color: #F5F5F5;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    background-color: #11408f;
-  }
+  background-color: #aaaaaa;
 }

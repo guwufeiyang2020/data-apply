@@ -8,7 +8,7 @@
           :default-active="$route.path"
           class="el-menu-demo" 
           mode="horizontal"  
-          background-color="#2D518B"
+          :background-color="menuBg"
           text-color="#fff"
           active-text-color="#ffd04b"
         >
@@ -35,19 +35,21 @@
           </el-submenu>
         </el-menu>
       </div>
-
       <div class="r-content">
-          <i class="el-icon-search" @click="jumpToSearch"></i>
-        <!--  <el-input
-          class="search-resouce"
-          placeholder="搜索资源"
-          v-model="searchResouce">
-          <i slot="prefix" class="el-input__icon el-icon-search"></i>
-        </el-input> -->
+        <i class="el-icon-search" @click="jumpToSearch"></i>
+        <el-dropdown trigger="click" v-if="token">
+          <span class="el-dropdown-link change-skin">
+            <svg-icon icon-class="skin" class="icon-svg" />
+          </span> 
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item @click.native="changeTheme('theme1')">蓝色</el-dropdown-item>
+            <el-dropdown-item @click.native="changeTheme('theme2')">绿色</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
         <el-badge is-dot class="item">
           <i class="el-icon-bell"></i>
         </el-badge>
-        
+
         <el-dropdown trigger="click" v-if="token">
           <span class="el-dropdown-link">
             <img :src="userImg" class="user-img"/> {{userName}}</span> 
@@ -60,13 +62,11 @@
         <el-button type="text" v-if="!token" @click="login">登录</el-button>
       </div>
     </div>
-    
   </div>
 </template>
 
 <script>
   import { mapState } from 'vuex'
-
   export default{
     name: 'mHeader',
     data() {
@@ -91,7 +91,6 @@
                 path: '/apply/apply2',
                 name: 'apply2',
                 label: '我的应用2',
-                
               }
             ]
           },
@@ -106,22 +105,30 @@
           }
         ],
         userImg: require('@/assets/images/user.png'),
-        searchResouce: ''
+        searchResouce: '',
+        menuBg: sessionStorage.getItem('menuBg') || '#2D518B'
       }
     },
     computed: {
-      ...mapState(['token', 'userName']),
+      ...mapState(['token', 'userName', 'theme']),
       noChildren() {
         return this.asideMenu.filter(item => !item.children)
       },
       hasChildren() {
         return this.asideMenu.filter(item => item.children)
-      },
-    },
-    mounted() {
-      
+      }
     },
     methods: {
+      changeTheme(type) {
+        sessionStorage.setItem('type', type);
+        window.document.documentElement.setAttribute("data-theme", sessionStorage.getItem('type'));
+        if(type === 'theme1') {
+          this.menuBg = '#2D518B';
+        } else {
+          this.menuBg = '#3f8e4d';
+        }
+        sessionStorage.setItem('menuBg', this.menuBg);
+      },
       clickMenu(item) {
         this.$router.push({ path: item.path });
       },
@@ -148,11 +155,12 @@
   }
 </script>
 <style lang="scss" scoped>
-  .header{
+  @import "@/assets/scss/mixin.scss";
+  .header {
     width: 100%;
     height: 0.8rem;
     padding: 0 1rem;
-    background: $theme-color;
+    @include bg_color($background-color-theme);
     color: #fff;
     font-size: .14rem;
   }
@@ -182,14 +190,19 @@
           &.is-active {
             i {
               color: #fff;
+              font-size: 16px;
             }
           }
         }
+        
       }
       /deep/ .el-menu--horizontal>.el-submenu .el-submenu__title {
         height: .8rem;
         line-height:.8rem;
         font-size: .16rem;
+        i {
+          color: #fff;
+        }
       } 
       .nav-menu {
         display: flex;
@@ -212,6 +225,12 @@
           font-size: .24rem;
         }
       }
+      .change-skin {
+        height: .2rem;
+        .icon-svg {
+          margin-right: .2rem;
+        }
+      }
       .el-dropdown-link {
         display: flex;
         height: .6rem;
@@ -225,6 +244,5 @@
         }
       }
     }
-    
   }
 </style>

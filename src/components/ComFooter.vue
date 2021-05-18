@@ -9,9 +9,10 @@
   }
 </script>
 <style lang="scss" scoped>
-  .footer{
+  @import "@/assets/scss/mixin.scss";
+  .footer {
     height: .6rem;
-    background: $theme-color;
+    @include bg_color($background-color-theme);
     color:#fff;
     font-size: .14rem;
     .copyright{

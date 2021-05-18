@@ -8,6 +8,8 @@ import './utils/rem';
 import './assets/scss/index.scss';
 import "element-ui/lib/theme-chalk/index.css"; 
 
+import VueBus from './utils/eventBus';
+
 import { Message } from 'element-ui'
 import http from '@/api/config'
 
@@ -18,6 +20,8 @@ Vue.prototype.$message = Message;
 
 import ElementUI from 'element-ui';
 Vue.use(ElementUI);
+
+Vue.use(VueBus);
 Vue.prototype.$http = http;
 
 const mock = true;

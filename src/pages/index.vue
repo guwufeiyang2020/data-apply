@@ -41,43 +41,45 @@
           </div>
         </div>
         <div class="section section3">
-          <div class="sub-title">我的目录</div>
-          <div class="tree-box min-scrollbar">
-            <el-tree 
-              :data="treeData" 
-              :props="defaultProps" 
-              node-key="id"
-              :default-expanded-keys="[1, 3, 5]"
-              @node-click="handleNodeClick">
-            </el-tree>
+          <div class="section3-left">
+            <div class="sub-title">我的目录</div>
+            <div class="tree-box min-scrollbar">
+              <el-tree 
+                :data="treeData" 
+                :props="defaultProps" 
+                node-key="id"
+                :default-expanded-keys="[1, 3, 5]"
+                @node-click="handleNodeClick">
+              </el-tree>
+            </div>
           </div>
-        </div>
-        <div class="section section4">
-          <div class="sub-title">搜索</div>
-          <el-input placeholder="请输入内容" v-model="search" class="input-with-select">
-            <i slot="prefix" class="el-input__icon el-icon-search"></i>
-            <el-button slot="append" >搜索</el-button>
-          </el-input>
-          <ul class="search-list">
-            <li class="search-item" v-for="item in searchList" :key="item.id">
-              <div class="item-left">
-                <div class="img-box">
-                  <img class="echart-img" :src="computedIcon(item.type)" />
+          <div class="section3-right">
+            <div class="sub-title">搜索</div>
+            <el-input placeholder="请输入内容" v-model="search" class="input-with-select">
+              <i slot="prefix" class="el-input__icon el-icon-search"></i>
+              <el-button slot="append" >搜索</el-button>
+            </el-input>
+            <ul class="search-list">
+              <li class="search-item" v-for="item in searchList" :key="item.id">
+                <div class="item-left">
+                  <div class="img-box">
+                    <img class="echart-img" :src="computedIcon(item.type)" />
+                  </div>
+                  <div class="content-box">
+                    <p>
+                      <span class="type" :style="{ background: backgroundComputed(item.type) }"> {{item.type}} </span> 
+                      <span class="title"> {{item.title}} </span> 
+                    </p>
+                    <p class="content"> {{item.content}} </p>
+                  </div>
                 </div>
-                <div class="content-box">
-                  <p>
-                    <span class="type" :style="{ background: backgroundComputed(item.type) }"> {{item.type}} </span> 
-                    <span class="title"> {{item.title}} </span> 
-                  </p>
-                  <p class="content"> {{item.content}} </p>
+                <div class="item-right">
+                  <p>{{item.date}}</p>
+                  <p>提供方：{{item.provider}}</p>
                 </div>
-              </div>
-              <div class="item-right">
-                <p>{{item.date}}</p>
-                <p>提供方：{{item.provider}}</p>
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="top-right">
@@ -202,9 +204,6 @@
 <script>
 export default {
   name: 'index',
-  components: {
-    
-  },
   data() {
     return  {
       search: '',
@@ -224,7 +223,6 @@ export default {
         id: '05',
         title: '2021新年贺词，习主席为中国人民和中国军人点赞'
       }],
-      
       treeData: [{
           id: 1,
           label: '资源目录',
@@ -277,7 +275,6 @@ export default {
         children: 'children',
         label: 'label'
       },
-
       searchList: [{
         type: '定制应用',
         title: '2020年人口流动数据',
@@ -309,7 +306,6 @@ export default {
         date: '2022/3/20 16:22:30',
         provider: '王力阳'
       }],
-
       tabList: [{
         label: '海外军情解密',
         index: 1
@@ -321,7 +317,6 @@ export default {
         index: 3
       }],
       currentIndex: 1,
-
       infoList: [{
         id: '01',
         title: '伊朗12艘快艇高速逼近美舰队：只为要钱不为麻烦'
@@ -341,7 +336,6 @@ export default {
         id: '06',
         title: '150枚火箭弹夜袭以色列，以外长访韩途中紧急回国'
       }],
-
       recentBrowseList: [{
         id: '01',
         path: require('../assets/images/img-left-botttom1.png'),
@@ -428,6 +422,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/scss/mixin.scss";
 .index-wrapper {
   width: 100%;
   padding: .32rem 1rem;
@@ -454,7 +449,7 @@ export default {
       height: .5rem;
       line-height: .5rem;
       font-size: .16rem;
-      color: $theme-color;
+      @include font_color($font-color-theme);
     }
   }
   .section1 {
@@ -519,81 +514,89 @@ export default {
     }
   }
   .section3 {
-    width: 5.2rem;
+    display: flex;
+    width: calc(100% - .14rem);
+    margin-right: .14rem;
     height: 4.33rem;
-    .tree-box {
-      max-height: 3.3rem;
-      overflow-y: auto;
-    }
-  }
-  .section4 {
-    width: 7.3rem;
-    height: 4.33rem;
-    /deep/ .el-button {
-      background: $theme-color;
-      border: 1px solid $theme-color;
-      color: #fff;
-      border-radius: 0 4px 4px 0;
-    }
-    .search-list {
-      margin-top: .1rem;
+    .section3-left {
+      flex: 1;
+      margin-right: .3rem;
       padding: .1rem;
-      max-height: 2.8rem;
-      overflow-y: auto;
-      .search-item {
-        height: .88rem;
-        font-size: 14px;
-        color: #867f7f;
-        display: flex;
-        border-bottom: 1px solid #ecf1f8;
-        justify-content: space-between;
+      .tree-box {
+        max-height: 3.3rem;
+        overflow-y: auto;
       }
-      .item-left {
-        height: .88rem;
-        display: flex;
-        align-items: center;
+    }
+    .section3-right {
+      width: 8rem;
+      height: 4.33rem;
+      /deep/ .el-button {
+        @include bg_color($background-color-theme);
+        @include border_color($font-color-theme);
+        color: #fff;
+        border-radius: 0 4px 4px 0;
       }
-      .img-box {
-        width: .6rem;
-        height: .6rem;
+      .search-list {
+        margin-top: .1rem;
         padding: .1rem;
-        border-radius: .1rem;
-        margin-right: .1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: $theme-color;
-        img {
-          width: .28rem;
-          height: .28rem;
-        }
-      }
-      .content-box {
-        p {
-          height: .3rem;
-          line-height: .3rem;
-        }
-        .type {
-          padding: 4px 5px;
-          background: #49c014;
-          color: #fff;
-          border-radius: 3px;
-          margin-right: .1rem;
-        }
-        .title {
-          color: #383636;
-        }
-        .content {
+        max-height: 2.8rem;
+        overflow-y: auto;
+        .search-item {
+          height: .88rem;
+          font-size: 14px;
           color: #867f7f;
+          display: flex;
+          border-bottom: 1px solid #ecf1f8;
+          justify-content: space-between;
         }
-      }
-      .item-right {
-        height: .88rem;
-        text-align: right;
-        padding-top: .16rem;
-        p {
-          height: .3rem;
-          line-height: .3rem;
+        .item-left {
+          height: .88rem;
+          display: flex;
+          align-items: center;
+        }
+        .img-box {
+          width: .6rem;
+          height: .6rem;
+          padding: .1rem;
+          border-radius: .1rem;
+          margin-right: .1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          @include bg_color($background-color-theme);
+          @include border_color("border_color1");
+          img {
+            width: .28rem;
+            height: .28rem;
+          }
+        }
+        .content-box {
+          p {
+            height: .3rem;
+            line-height: .3rem;
+          }
+          .type {
+            padding: 4px 5px;
+            background: #49c014;
+            color: #fff;
+            border-radius: 3px;
+            margin-right: .1rem;
+          }
+          .title {
+            color: #383636;
+          }
+          .content {
+            color: #867f7f;
+          }
+        }
+        .item-right {
+          height: .88rem;
+          text-align: right;
+          padding-top: .16rem;
+          p {
+            height: .3rem;
+            line-height: .3rem;
+          }
         }
       }
     }
@@ -613,7 +616,7 @@ export default {
         .img-box {
           width: .58rem;
           height: .58rem;
-          background: $theme-color;
+          @include bg_color($background-color-theme);
           display: flex;
           justify-content: center;
           align-items: center;
@@ -651,8 +654,8 @@ export default {
           padding: 0 .1rem;
           cursor: pointer;
           &.active {
-            color: #1668c5;
-            border-bottom: 2px solid #1668c5;
+            @include font_color($font-color-theme);
+            @include border_color_bottom($font-color-theme);
           }
         }
       }
@@ -697,7 +700,7 @@ export default {
         .img-box {
           width: .58rem;
           height: .58rem;
-          background: #238C69;
+          @include bg_color($background-color-theme);
           display: flex;
           justify-content: center;
           align-items: center;
@@ -778,9 +781,7 @@ export default {
         color: #1C1A1A;
         line-height: .24rem;
       }
-     
     }
   }
-  
 }
 </style>

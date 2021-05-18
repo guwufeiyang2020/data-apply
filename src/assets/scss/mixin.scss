@@ -1,0 +1,40 @@
+@import './variable.scss';  // 引入配置
+@mixin font_color($color){/*通过该函数设置字体颜色，后期方便统一管理；*/
+	color: $color;
+  [data-theme="theme1"] & {
+    color:$font-color-theme1;
+  }
+  [data-theme="theme2"] & {
+    color:$font-color-theme2;
+  }
+}
+@mixin bg_color($color){/*通过该函数设置主题颜色，后期方便统一管理；*/
+  background-color: $color;
+  [data-theme="theme1"] & {
+    background-color: $background-color-theme1;
+  }
+  [data-theme="theme2"] & {
+    background-color: $background-color-theme2;
+  }
+}
+@mixin border_color($color) {
+  border-width: 1px;
+  border-style: solid;
+  [data-theme="theme1"] & {
+    border-color: $background-color-theme1;
+  }
+  [data-theme="theme2"] & {
+    border-color: $background-color-theme2;
+  }
+}
+@mixin border_color_bottom($color) {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  [data-theme="theme1"] & {
+    border-bottom-color: $background-color-theme1;
+  }
+  [data-theme="theme2"] & {
+    border-bottom-color: $background-color-theme2;
+  }
+}
+
