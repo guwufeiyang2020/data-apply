@@ -46,7 +46,7 @@
             <el-dropdown-item @click.native="changeTheme('theme2')">绿色</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-badge is-dot class="item">
+        <el-badge is-dot class="item" @click.native="jumpToTest">
           <i class="el-icon-bell"></i>
         </el-badge>
 
@@ -135,6 +135,9 @@
       jumpToSearch() {
         this.$router.push({ path: '/search' });
       },
+      jumpToTest() {
+        this.$router.push({ path: '/test' });
+      },
       login() {
         this.$router.push('/login');
       },
@@ -220,6 +223,7 @@
         cursor: pointer;
       }
       .el-badge {
+        cursor: pointer;
         margin-right: .3rem;
         .el-icon-bell {
           font-size: .24rem;
@@ -236,6 +240,7 @@
         height: .6rem;
         align-items: center;
         color: #fff;
+        cursor: pointer;
         .user-img {
           width: .3rem;
           height: .3rem;

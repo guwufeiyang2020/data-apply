@@ -1,5 +1,5 @@
 import Main from '../pages/main'
-import Index from '../pages/index'
+import Index from '../pages/index/index.vue'
 
 export const routers = [
   {
@@ -37,6 +37,11 @@ export const routers = [
         path: '/search',
         name: 'search',
         component: () => import('../pages/search.vue')
+      },
+      {
+        path: '/test',
+        name: 'test',
+        component: () => import('../pages/index/test.vue')
       },
       {
         path: '/detail/:id',
