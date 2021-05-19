@@ -77,11 +77,10 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/mixin.scss";
 .section {
+  width: 100%;
   background: #fff;
   border-radius: .06rem;
-  margin: 0 .14rem .14rem 0;
   padding: .16rem;
-  float: left;
   .sub-title {
     height: .5rem;
     line-height: .5rem;
@@ -90,8 +89,6 @@ export default {
   }
 }
  .section6 {
-   /*  width: 100%;
-    height: 3.8rem; */
     margin-bottom: .1rem;
     .tab-wrapper {
       display: flex;

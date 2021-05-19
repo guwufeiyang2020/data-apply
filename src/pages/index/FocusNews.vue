@@ -39,11 +39,10 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/mixin.scss";
 .section {
+    width: 100%;
     background: #fff;
     border-radius: .06rem;
-    margin: 0 .14rem .14rem 0;
     padding: .16rem;
-    float: left;
     .sub-title {
       height: .5rem;
       line-height: .5rem;
@@ -52,18 +51,19 @@ export default {
     }
   }
   .section1 {
-   /*  width: 5.2rem;
+    /*  width: 5.2rem;
     height: 4.33rem; */
     .img-box {
       width: 100%;
+      max-height: 2.4rem;
       position: relative;
       img {
         width: 100%;
-        height: auto;
+        max-height: 2.4rem;
       }
       .first-title {
         position: absolute;
-        bottom: 2px;
+        bottom: 0;
         width: 100%;
         height: 31px;
         padding: 0 .1rem;
@@ -78,7 +78,7 @@ export default {
       .new-item {
         padding: 0 .1rem;
         font-size: 12px;
-        line-height: .28rem;
+        line-height: .26rem;
       }
     }
   }

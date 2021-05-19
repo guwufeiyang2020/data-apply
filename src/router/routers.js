@@ -39,11 +39,6 @@ export const routers = [
         component: () => import('../pages/search.vue')
       },
       {
-        path: '/test',
-        name: 'test',
-        component: () => import('../pages/index/test.vue')
-      },
-      {
         path: '/detail/:id',
         name: 'detail',
         component: () => import('../pages/detail.vue')

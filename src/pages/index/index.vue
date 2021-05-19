@@ -1,20 +1,28 @@
 <template>
-  <div class="index-wrapper">
-    <div class="index-top">
-      <div class="top-left">
-        <focus-news></focus-news>
-        <kan-ban></kan-ban>
-        <my-Catalog></my-Catalog>
-      </div>
-      <div class="top-right">
-        <train-range></train-range>
-        <new-list></new-list>
-        <professional-support></professional-support>
-      </div>
-    </div>
-    <div class="index-bottom">
-     <recent-browse></recent-browse>
-    </div>
+  <div class="box">
+    <!-- <el-button type="primary" icon="el-icon-plus">增加模块</el-button> -->
+    <grid-layout
+      :layout.sync="layout"
+      :col-num="12"
+      :row-height="30"
+      :is-draggable="true"
+      :is-resizable="true"
+      :autoSize="true" 
+      :vertical-compact="true"
+      :margin="[10, 10]"
+      :use-css-transforms="true"
+      :responsive="true" 
+    >
+      <grid-item v-for="item in layout"
+        :x="item.x"
+        :y="item.y"
+        :w="item.w"
+        :h="item.h"
+        :i="item.i"
+        :key="item.i">
+          <component :is="item.component" />
+      </grid-item>
+    </grid-layout>
   </div>
 </template>
 
@@ -26,9 +34,13 @@ import TrainRange from './TrainRange.vue';
 import NewList from './NewList.vue';
 import ProfessionalSupport from './ProfessionalSupport.vue';
 import RecentBrowse from './RecentBrowse.vue';
+import { GridLayout, GridItem } from 'vue-grid-layout';
+
 export default {
-  name: 'index',
+  name: 'test',
   components: {
+    GridLayout,
+    GridItem,
     FocusNews,
     KanBan,
     MyCatalog,
@@ -37,50 +49,30 @@ export default {
     ProfessionalSupport,
     RecentBrowse
   },
-  data() {
-    return  {
-     
+  data(){
+    return {
+      layout:  [
+        {"x": 0, "y": 0, "w": 3.6, "h": 10, "i": 1, "component": 'FocusNews'},
+        {"x": 3.6, "y": 0, "w": 5.4, "h": 10, "i": 2, "component": 'KanBan'},
+        {"x": 9, "y": 0, "w": 3, "h": 6, "i": 3,  "component": 'TrainRange'},
+        {"x": 0, "y": 4, "w": 9, "h": 10, "i": 4, "component": 'MyCatalog'},
+        {"x": 9, "y": 4, "w": 3, "h": 9, "i": 5, "component": 'NewList'},
+        {"x": 9, "y": 4, "w": 3, "h": 5, "i": 6, "component": 'ProfessionalSupport'},
+        {"x": 0, "y": 10, "w": 12, "h": 4, "i": 7, "component": 'RecentBrowse'},  
+      ]
     }
   },
-  mounted() {
-    
-  },
-  methods: {
-   
-  }
+
 }
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/mixin.scss";
-.index-wrapper {
-  width: 100%;
-  padding: .32rem 1rem;
-  background: #f6f6f6;
-  .index-top {
-    display: flex;
-    .top-left {
-      width: 12.8rem;
-    }
-    .top-right {
-      flex: 1;
+  .box {
+    background: #f6f6f6;
+    padding: .3rem;
+    .vue-grid-item {
+      background: #fff;
+      border-radius: 5px;
     }
   }
-  .index-bottom {
-    height: 1.4rem;
-  }
-  .section {
-    background: #fff;
-    border-radius: .06rem;
-    margin: 0 .14rem .14rem 0;
-    padding: .16rem;
-    float: left;
-    .sub-title {
-      height: .5rem;
-      line-height: .5rem;
-      font-size: .16rem;
-      @include font_color($font-color-theme);
-    }
-  }
-}
 </style>

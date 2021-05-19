@@ -42,11 +42,10 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/mixin.scss";
 .section {
+  width: 100%;
   background: #fff;
   border-radius: .06rem;
-  margin: 0 .14rem .14rem 0;
   padding: .16rem;
-  float: left;
   .sub-title {
     height: .5rem;
     line-height: .5rem;
@@ -81,6 +80,7 @@ export default {
     padding: .2rem;
     .echart-img {
       width: 100%;
+      max-height: 2.4rem;
     }
   }
 }
