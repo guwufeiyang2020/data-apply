@@ -61,7 +61,7 @@ export default {
     .system-list {
       .system-item {
         width: 1.6rem;
-        height: 0.9rem;
+        height: 1rem;
         float: left;
         display: flex;
         flex-direction: column;
@@ -79,8 +79,8 @@ export default {
           }
         }
         p {
-          line-height: .32rem;
-          font-size: 12px;
+          line-height: .34rem;
+          font-size: 14px;
         }
       }
     }

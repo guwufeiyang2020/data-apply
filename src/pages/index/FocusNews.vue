@@ -27,6 +27,9 @@ export default {
       }, {
         id: '04',
         title: '习主席在解放军和武警部队代表全体会议上的讲话'
+      }, {
+        id: '05',
+        title: '习主席在出席的这项活动让全军倍感振奋'
       }],
     }
   }
@@ -74,7 +77,7 @@ export default {
       margin-top: .1rem;
       .new-item {
         padding: 0 .1rem;
-        font-size: 12px;
+        font-size: 14px;
         line-height: .26rem;
       }
     }

@@ -128,13 +128,13 @@ export default {
           p {
             line-height: .2rem;
             color: #1C1A1A;
-            font-size: 12px;
+            font-size: 14px;
           }
         }
       }
       .text-item {
-        line-height: .24rem;
-        font-size: 12px;
+        line-height: .28rem;
+        font-size: 14px;
         color: #747070;
       }
     }

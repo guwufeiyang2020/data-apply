@@ -104,7 +104,7 @@ export default {
       }
       .recent-browse-text {
         line-height: .2rem;
-        font-size: 12px;
+        font-size: 14px;
       }
     }
   }

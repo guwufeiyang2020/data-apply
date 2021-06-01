@@ -74,7 +74,7 @@ export default {
       }
       p {
         line-height: .32rem;
-        font-size: 12px;
+        font-size: 14px;
       }
     }
   }
