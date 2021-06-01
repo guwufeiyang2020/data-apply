@@ -46,7 +46,7 @@
             <el-dropdown-item @click.native="changeTheme('theme2')">绿色</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-badge is-dot class="item" @click.native="jumpToTest">
+        <el-badge is-dot class="item">
           <i class="el-icon-bell"></i>
         </el-badge>
 
@@ -55,6 +55,7 @@
             <img :src="userImg" class="user-img"/> {{userName}}</span> 
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>个人信息</el-dropdown-item>
+            <el-dropdown-item @click.native="toCustomPage">定制工作台</el-dropdown-item>
             <el-dropdown-item>审批信息</el-dropdown-item>
             <el-dropdown-item @click.native="logout">退出</el-dropdown-item>
           </el-dropdown-menu>
@@ -135,9 +136,6 @@
       jumpToSearch() {
         this.$router.push({ path: '/search' });
       },
-      jumpToTest() {
-        this.$router.push({ path: '/test' });
-      },
       login() {
         this.$router.push('/login');
       },
@@ -153,6 +151,9 @@
           }).catch((error) => {
             this.$message.error(error);
           });
+      },
+      toCustomPage() {
+        this.$router.push({ path: '/customPage' });
       }
     }
   }

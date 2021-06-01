@@ -14,6 +14,16 @@ export const routers = [
         component: Index,
       }, 
       {
+        path: '/customPage',
+        name: 'customPage',
+        component: () => import('../pages/custom-page/customPage.vue')
+      }, 
+      {
+        path: '/customPageCongig',
+        name: 'customPageCongig',
+        component: () => import('../pages/custom-page/customPageConfig.vue')
+      }, 
+      {
         path: '/apply/apply1',
         name: 'apply1',
         component: () => import('../pages/apply/apply1.vue')

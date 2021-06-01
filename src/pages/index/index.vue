@@ -1,6 +1,5 @@
 <template>
   <div class="box">
-    <!-- <el-button type="primary" icon="el-icon-plus">增加模块</el-button> -->
     <grid-layout
       :layout.sync="layout"
       :col-num="12"
@@ -20,7 +19,7 @@
         :h="item.h"
         :i="item.i"
         :key="item.i">
-          <component :is="item.component" />
+        <component :is="item.component" />
       </grid-item>
     </grid-layout>
   </div>
@@ -51,18 +50,22 @@ export default {
   },
   data(){
     return {
-      layout:  [
-        {"x": 0, "y": 0, "w": 3.6, "h": 10, "i": 1, "component": 'FocusNews'},
-        {"x": 3.6, "y": 0, "w": 5.4, "h": 10, "i": 2, "component": 'KanBan'},
-        {"x": 9, "y": 0, "w": 3, "h": 6, "i": 3,  "component": 'TrainRange'},
-        {"x": 0, "y": 4, "w": 9, "h": 10, "i": 4, "component": 'MyCatalog'},
-        {"x": 9, "y": 4, "w": 3, "h": 9, "i": 5, "component": 'NewList'},
+      layout: [
+        {"x": 0, "y": 0, "w": 3.6, "h": 11, "i": 1, "component": 'FocusNews'},
+        {"x": 3.6, "y": 0, "w": 5.4, "h": 11, "i": 2, "component": 'KanBan'},
+        {"x": 9, "y": 0, "w": 3, "h": 7, "i": 3,  "component": 'TrainRange'},
+        {"x": 0, "y": 4, "w": 9, "h": 11, "i": 4, "component": 'MyCatalog'},
+        {"x": 9, "y": 4, "w": 3, "h": 10, "i": 5, "component": 'NewList'},
         {"x": 9, "y": 4, "w": 3, "h": 5, "i": 6, "component": 'ProfessionalSupport'},
         {"x": 0, "y": 10, "w": 12, "h": 4, "i": 7, "component": 'RecentBrowse'},  
       ]
     }
   },
+  methods: {
+    customPage() {
 
+    }
+  }
 }
 </script>
 

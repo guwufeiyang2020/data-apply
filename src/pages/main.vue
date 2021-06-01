@@ -15,12 +15,11 @@
       ComHeader,
       ComFooter
     },
-    
   }
 </script>
 
 <style lang="scss" scoped>
-  .main-content{
+  .main-content {
     min-height: calc(100vh - 1.4rem);
   }
 </style>

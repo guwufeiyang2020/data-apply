@@ -1,0 +1,10 @@
+$INNER-WIDTH: 1520px;
+
+$BASE-COLOR: #f6f6f6;
+$CONTENT-COLOR: #fefefe;
+
+@mixin asLayoutCard {
+  background-color: #dbdbdb;
+  padding: .5em .75em;
+  border-radius: .25em;
+}
